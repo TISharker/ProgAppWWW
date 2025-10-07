@@ -47,6 +47,10 @@ main {
   
 }
 
+ol{
+  display: inline-block;
+}
+
 .photos{
   display: flex;
   flex-wrap: wrap;
@@ -60,6 +64,19 @@ main {
   object-fit: cover;
   border-radius: 10px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.392);
+}
+
+.tresc {
+  display:flex;
+  align-items:flex-start;
+  gap: 10px;
+}
+
+.tresc img {
+  object-fit:cover;
+  height: 400px;
+  width: 300px;
+  border-radius: 20px;
 }
 
 footer {

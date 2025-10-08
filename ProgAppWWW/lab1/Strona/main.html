@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="pl">
 <head>
 <meta name ="description" content="Projekt 1">
 <meta name ="keywords" content="HTML5, CSS3, JavaScript">
@@ -7,7 +7,7 @@
 <title>Najwieksze budynki świata</title>
 <link rel="stylesheet" href="main.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta charset="UTF-8">
 
 </head>
 <body>
@@ -19,17 +19,17 @@
     <a href="p2.html">Burj Khalifa</a>   
     <a href="p3.html">Shanghai Tower</a>   
     <a href="p4.html">Abraj Al-Bait</a>   
-    <a href="p5.html">Ping An Center</a>  
+    <a href="p5.html">Ping An Finance Center</a>  
     <a href="p6.html">Lotte World Tower</a> 
 </nav>
 <main>
     <h2>Witam</h2>
-        <p>Na tej witrynie przedstawie najwyższe budynki świata</p>
+        <p>Na tej witrynie przedstawie 5 najwyższych budynków świata</p>
 
 
-    <zrodla>    
+       
 
-    <listaB>
+    <div class="listaB">
         <h2>Najwyższe Budynki</h2>
             <ol>
             <li><strong>Burj Khalifa</strong> – Dubaj, 828 m</li>
@@ -38,36 +38,82 @@
             <li><strong>Ping An Finance Center</strong> – Shenzhen, 599 m</li>
             <li><strong>Lotte World Tower</strong> – Seul, 555 m</li>
             </ol>
-    </listaB>
+    </div>
+
+    <div class="tabela">
+        <table>
+            <tr>
+                <th>Budynek</th>
+                <th>Rok zakończenia budowy</th>
+                <th>Kraj</th>
+                <th>Wysokość</th>
+            </tr>
+            <tr>
+                <td>Burj Khalifa</td>
+                <td>2009</td>
+                <td>Zjednoczone Emiraty Arabskie</td>
+                <td>828m</td>
+            </tr>
+            <tr>
+                <td>Shanghai Tower</td>
+                <td>2014</td>
+                <td>Chiny</td>
+                <td>632m</td>
+            </tr>
+            <tr>
+                <td>Abraj Al-Bait</td>
+                <td>2012</td>
+                <td>Arabia Saudyjska</td>
+                <td>601m</td>
+            </tr>
+            <tr>
+                <td>Ping An Finance Center</td>
+                <td>2017</td>
+                <td>Chiny</td>
+                <td>599.1m</td>
+            </tr>
+            <tr>
+                <td>Lotte World Tower</td>
+                <td>2016</td>
+                <td>Korea Południowa</td>
+                <td>555m</td>
+            </tr>
+        </table>
+    </div>
 
 
 
 
+
+    <div class="zrodla">
     <h2>Źródła</h2>
         <div class="links">
-        <a href="https://pl.wikipedia.org/wiki/Lista_najwy%C5%BCszych_budynk%C3%B3w">https://pl.wikipedia.org/wiki/Lista_najwy%C5%BCszych_budynk%C3%B3w</a> <br>
-        <a href="https://pl.wikipedia.org/wiki/Burd%C5%BC_Chalifa">https://pl.wikipedia.org/wiki/Burd%C5%BC_Chalifa</a><br>
-        <a href="https://en.wikipedia.org/wiki/Shanghai_Tower">https://pl.wikipedia.org/wiki/Lista_najwy%C5%BCszych_budynk%C3%B3whttps://en.wikipedia.org/wiki/Shanghai_Tower</a><br>
-        <a href="https://pl.wikipedia.org/wiki/Abrad%C5%BC_al-Bajt ">https://pl.wikipedia.org/wiki/Abrad%C5%BC_al-Bajt </a><br>
-        <a href="https://en.wikipedia.org/wiki/Ping_An_Finance_Centre">https://en.wikipedia.org/wiki/Ping_An_Finance_Centre</a><br>
-        <a href="https://en.wikipedia.org/wiki/Lotte_World_Tower">https://en.wikipedia.org/wiki/Lotte_World_Tower</a><br>
-        <a href="https://en.wikipedia.org/wiki/Guangzhou_CTF_Finance_Centre">https://en.wikipedia.org/wiki/Guangzhou_CTF_Finance_Centre</a>
-
+            <ul>
+                <li><a href="https://pl.wikipedia.org/wiki/Lista_najwy%C5%BCszych_budynk%C3%B3w">https://pl.wikipedia.org/wiki/Lista_najwy%C5%BCszych_budynk%C3%B3w</a> </li>
+                <li><a href="https://pl.wikipedia.org/wiki/Burd%C5%BC_Chalifa">https://pl.wikipedia.org/wiki/Burd%C5%BC_Chalifa</a></li>
+                <li><a href="https://en.wikipedia.org/wiki/Shanghai_Tower">https://pl.wikipedia.org/wiki/Lista_najwy%C5%BCszych_budynk%C3%B3whttps://en.wikipedia.org/wiki/Shanghai_Tower</a></li>
+                <li><a href="https://pl.wikipedia.org/wiki/Abrad%C5%BC_al-Bajt ">https://pl.wikipedia.org/wiki/Abrad%C5%BC_al-Bajt </a></li>
+                <li><a href="https://en.wikipedia.org/wiki/Ping_An_Finance_Centre">https://en.wikipedia.org/wiki/Ping_An_Finance_Centre</a></li>
+                <li><a href="https://en.wikipedia.org/wiki/Lotte_World_Tower">https://en.wikipedia.org/wiki/Lotte_World_Tower</a></li>
+                <li><a href="https://4kwallpapers.com/world/tokyo-tower-japan-metal-structure-cityscape-city-lights-3672.html">https://4kwallpapers.com/world/tokyo-tower-japan-metal-structure-cityscape-city-lights-3672.html</a> </li>
+            </ul>
         </div>
-    </zrodla>
+    </div>
 
 
-    <galeria>
+
+    <div class="galeria">
       <h2>Galeria</h2>
       <div class="photos">
-        <img src="images/burdz.jpg" alt="Burj Khalifa"> 
-        <img src="images/shanghai.jpg" alt="Shanghai Tower">
-        <img src="images/abraj.jpg" alt="Abraj Al Bajt">
-        <img src="images/pingan.jpg" alt="Ping An Tower">
-        <img src="images/lotte.jpg" alt="Lotte Tower">
-        <img src="images/guang.jpg" alt="Guangzhou CTF Tower">
+        <img src="images/burdz.jpg" alt=""> 
+        <img src="images/shanghai.jpg" alt="">
+        <img src="images/abraj.jpg" alt="">
+        <img src="images/pingan.jpg" alt="">
+        <img src="images/lotte.jpg" alt="">
+        <img src="images/burdz2.jpg" alt="">
+        <img src="images/burdz3.jpg" alt="">
       </div>
-    </galeria>
+    </div>
 
    
 

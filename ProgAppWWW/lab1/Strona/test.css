@@ -1,7 +1,7 @@
 body {
-    background-image:url("images/tokio.jpg");  
-    background-size:cover;   
-    backdrop-filter: blur(10px);
+    background-color: #2cbbbb;  
+    background-size: cover;   
+    
    }
   
   
@@ -36,7 +36,7 @@ nav a:hover {
 }
 
 main {
-  background-color: rgba(255, 255, 255, 0.463);
+  background-color: rgb(255, 255, 255);
   padding: 20px;
   margin:auto;
   text-align: center;
@@ -105,12 +105,16 @@ th, td {
   border: 1px solid black;
   padding: 2px;
 }
+.zegarino {
+  font-size: 15px;
+}
 
 footer {
   background: #0c7976;
   color: #fff;
   text-align: center;
   padding: 10px;
+  font-size: 20px;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
 }

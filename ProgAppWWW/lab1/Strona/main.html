@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="main.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta charset="UTF-8">
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
 </head>
 <body>
@@ -105,20 +105,88 @@
 
     <div class="galeria">
       <h2>Galeria</h2>
-      <div class="photos">
-        <img src="images/burdz.jpg" alt=""> 
-        <img src="images/shanghai.jpg" alt="">
-        <img src="images/abraj.jpg" alt="">
-        <img src="images/pingan.jpg" alt="">
-        <img src="images/lotte.jpg" alt="">
-        <img src="images/burdz2.jpg" alt="">
-        <img src="images/burdz3.jpg" alt="">
+      <div id="zdjGaleria" class="photos">
+        <img src="images/burdz.jpg" alt="" class="photoInGalery"> 
+        <img src="images/shanghai.jpg" alt="" class="photoInGalery">
+        <img src="images/abraj.jpg" alt="" class="photoInGalery">
+        <img src="images/pingan.jpg" alt="" class="photoInGalery">
+        <img src="images/lotte.jpg" alt="" class="photoInGalery">
+        <img src="images/burdz2.jpg" alt="" class="photoInGalery">
+        <img src="images/burdz3.jpg" alt="" class="photoInGalery">
+
+         <script>
+        $(".photoInGalery").on({
+            "mouseover" : function() {
+                $(this).animate({
+                    width: 300,
+                    height:500
+                },800);
+            },
+        
+        "mouseout" : function() {
+            $(this).animate({
+                width: 100,
+                height: 200
+            },800);
+        }
+    })
+    </script>
+    
+
       </div>
     </div>
 
    
 
 </main>
+
+<div id="animacjaTestowa1" class="test-block">Kliknij, a sie powieksze</div>
+
+    <script>
+        $("#animacjaTestowa1").on("click",function(){
+            $(this).animate({
+                width: "500px",
+                opacity: 0.4,
+                fontSize: "3em",
+                borderWidth: "10px"
+            }, 1500);
+        });
+    </script>
+
+<div id="animacjaTestowa2" class="test-block">Najedz kursorem, a sie powieksze</div>
+
+    <script>
+        $("#animacjaTestowa2").on({
+            "mouseover" : function() {
+                $(this).animate({
+                    width: 300
+                },800);
+            },
+        
+        "mouseout" : function() {
+            $(this).animate({
+                width: 200
+            },800);
+        }
+    })
+    </script>
+
+
+<div id="animacjaTestowa3" class="test-block">Klikaj, abym urosl</div>
+
+    <script>
+        $("#animacjaTestowa3").on("click",function(){
+          if (!$(this).is("animated")){
+            $(this).animate({
+                width: "+=" + 50,
+                height: "+=" + 10,
+                opacity: "-=" + 0.1,
+                duration : 3000
+            });
+          }
+        });
+    </script>
+
 
 
 

@@ -1,0 +1,146 @@
+<main>
+    <h2>Witam</h2>
+        <p>Na tej witrynie przedstawie 5 najwyższych budynków świata</p>
+
+    <div class="listaB">
+        <h2>Najwyższe Budynki</h2>
+            <ol>
+            <li><strong>Burj Khalifa</strong> – Dubaj, 828 m</li>
+            <li><strong>Shanghai Tower</strong> – Szanghaj, 632 m</li>
+            <li><strong>Abraj Al-Bait</strong> – Mekka, 601 m</li>
+            <li><strong>Ping An Finance Center</strong> – Shenzhen, 599 m</li>
+            <li><strong>Lotte World Tower</strong> – Seul, 555 m</li>
+            </ol>
+    </div>
+
+    <div class="tabela">
+        <table>
+            <tr>
+                <th>Budynek</th>
+                <th>Rok zakończenia budowy</th>
+                <th>Kraj</th>
+                <th>Wysokość</th>
+            </tr>
+            <tr>
+                <td>Burj Khalifa</td>
+                <td>2009</td>
+                <td>Zjednoczone Emiraty Arabskie</td>
+                <td>828m</td>
+            </tr>
+            <tr>
+                <td>Shanghai Tower</td>
+                <td>2014</td>
+                <td>Chiny</td>
+                <td>632m</td>
+            </tr>
+            <tr>
+                <td>Abraj Al-Bait</td>
+                <td>2012</td>
+                <td>Arabia Saudyjska</td>
+                <td>601m</td>
+            </tr>
+            <tr>
+                <td>Ping An Finance Center</td>
+                <td>2017</td>
+                <td>Chiny</td>
+                <td>599.1m</td>
+            </tr>
+            <tr>
+                <td>Lotte World Tower</td>
+                <td>2016</td>
+                <td>Korea Południowa</td>
+                <td>555m</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="zrodla">
+    <h2>Źródła</h2>
+        <div class="links">
+            <ul>
+                <li><a href="https://pl.wikipedia.org/wiki/Lista_najwy%C5%BCszych_budynk%C3%B3w">https://pl.wikipedia.org/wiki/Lista_najwy%C5%BCszych_budynk%C3%B3w</a> </li>
+                <li><a href="https://pl.wikipedia.org/wiki/Burd%C5%BC_Chalifa">https://pl.wikipedia.org/wiki/Burd%C5%BC_Chalifa</a></li>
+                <li><a href="https://en.wikipedia.org/wiki/Shanghai_Tower">https://pl.wikipedia.org/wiki/Lista_najwy%C5%BCszych_budynk%C3%B3whttps://en.wikipedia.org/wiki/Shanghai_Tower</a></li>
+                <li><a href="https://pl.wikipedia.org/wiki/Abrad%C5%BC_al-Bajt ">https://pl.wikipedia.org/wiki/Abrad%C5%BC_al-Bajt </a></li>
+                <li><a href="https://en.wikipedia.org/wiki/Ping_An_Finance_Centre">https://en.wikipedia.org/wiki/Ping_An_Finance_Centre</a></li>
+                <li><a href="https://en.wikipedia.org/wiki/Lotte_World_Tower">https://en.wikipedia.org/wiki/Lotte_World_Tower</a></li>
+                <li><a href="https://4kwallpapers.com/world/tokyo-tower-japan-metal-structure-cityscape-city-lights-3672.html">https://4kwallpapers.com/world/tokyo-tower-japan-metal-structure-cityscape-city-lights-3672.html</a> </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="galeria">
+    <h2>Galeria</h2>
+    <div id="zdjGaleria" class="photos">
+        <img src="images/burdz.jpg" alt="" class="photoInGalery"> 
+        <img src="images/shanghai.jpg" alt="" class="photoInGalery">
+        <img src="images/abraj.jpg" alt="" class="photoInGalery">
+        <img src="images/pingan.jpg" alt="" class="photoInGalery">
+        <img src="images/lotte.jpg" alt="" class="photoInGalery">
+        <img src="images/burdz2.jpg" alt="" class="photoInGalery">
+        <img src="images/burdz3.jpg" alt="" class="photoInGalery">
+
+        <script>
+        
+        $(".photoInGalery").on({
+            "mouseover" : function() {
+                $(this).animate({
+                    width: 300,
+                    height:500
+                },800);
+            },
+        
+            "mouseout" : function() {
+                $(this).animate({
+                    width: 100,
+                    height: 200
+                },800);
+            }
+        })
+        </script>
+    </div>
+    </div>
+</main>
+
+<div id="animacjaTestowa1" class="test-block">Kliknij, a sie powieksze</div>
+    <script>
+        $("#animacjaTestowa1").on("click",function(){
+            $(this).animate({
+                width: "500px",
+                opacity: 0.4,
+                fontSize: "3em",
+                borderWidth: "10px"
+            }, 1500);
+        });
+    </script>
+
+<div id="animacjaTestowa2" class="test-block">Najedz kursorem, a sie powieksze</div>
+    <script>
+        $("#animacjaTestowa2").on({
+            "mouseover" : function() {
+                $(this).animate({
+                    width: 300
+                },800);
+            },
+        
+            "mouseout" : function() {
+                $(this).animate({
+                    width: 200
+                },800);
+            }
+        })
+    </script>
+
+<div id="animacjaTestowa3" class="test-block">Klikaj, abym urosl</div>
+    <script>
+        $("#animacjaTestowa3").on("click",function(){
+            if (!$(this).is("animated")){
+                $(this).animate({
+                    width: "+=" + 50,
+                    height: "+=" + 10,
+                    opacity: "-=" + 0.1,
+                    duration : 3000
+                });
+            }
+        });
+    </script>

@@ -63,7 +63,9 @@
 
     <main>
         <?php
+
             include($strona);
+            include('config.php');
         ?>
     </main>
 

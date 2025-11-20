@@ -1,19 +1,17 @@
-<?
+<?php
+    // Plik: cfg.php
+    $dbhost = 'localhost';
+    $dbuser = 'root';
+    $dbpass = ''; 
+    $baza = 'moja_strona';
+    
+    $login = 'admin';
+    $pass = 'haslo123';
 
-function PokazPodstrone($id) {
-    //czyścimy $id, aby przez GET ktoś nie próbował wykonać ataku SQL INJECTION
-    $id_clear = htmlspecialchars($id);
-    $query = "SELECT * FROM page_list WHERE id='$id_clear' LIMIT 1";
-    $result = mysql_query($query);
-    $row = mysql_fetch_array($result);
+    $link = mysqli_connect($dbhost, $dbuser, $dbpass, $baza);
 
-    if (empty($row['id'])) {
-        $web = ['nie_znaleziono_strony'];
-    } else {
-        $web = $row['page_content'];
+    if (!$link) {
+        echo '<b>przerwane połączenie: </b> ' . mysqli_connect_error(); 
+        exit();
     }
-
-    return $web;
-}
-
 ?>

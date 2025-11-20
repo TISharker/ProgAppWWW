@@ -3,10 +3,8 @@
     include('cfg.php');
     include('showpage.php');
     
-    // Mapowanie 'idp' (linków z menu) na ID w bazie danych
-    // Krok 1 w SQL ustawił ID tak: 1=Główna, 2=Burj, 3=Shanghai, 4=Abraj, 5=PingAn, 6=Lotte, 7=Filmy
     
-    $idp = $_GET['idp'] ?? ''; // operator ?? zabezpiecza przed brakiem zmiennej
+    $idp = $_GET['idp'] ?? ''; 
 
     if ($idp == '' || $idp == 'glowna') $stronaId = 1;
     elseif ($idp == 'podstrona1') $stronaId = 2;
@@ -46,7 +44,6 @@
 
     <main>
         <?php
-            // Wywołanie treści z bazy danych
             echo PokazPodstrone($stronaId);
         ?>
     </main>
@@ -59,7 +56,7 @@
             echo 'Autor: Jakub Sierocki ' . $nr_indeksu . ' grupa ' . $nrGrupy;
         ?>
         <br>
-        <a href="admin.php" style="color: #ccc; text-decoration: none; font-size: 0.8em;">Panel Admina</a>
+        <a href="admin/admin.php" style="color: #ccc; text-decoration: none; font-size: 0.8em;">Panel Admina</a>
     </footer>
 
     <script>

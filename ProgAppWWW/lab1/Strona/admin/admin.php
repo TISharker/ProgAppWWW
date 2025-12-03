@@ -116,4 +116,8 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 } else {
     echo FormularzLogowania();
 }
+
+echo '<br><br>';
+echo '<a href="../contact.php?akcja=przypomnij" style="color: red; font-weight: bold;">[Przypomnij hasło]</a>';
+
 ?>

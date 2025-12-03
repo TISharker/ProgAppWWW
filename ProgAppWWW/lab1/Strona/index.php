@@ -57,6 +57,7 @@
         ?>
         <br>
         <a href="admin/admin.php" style="color: #ccc; text-decoration: none; font-size: 0.8em;">Panel Admina</a>
+        <a href="contact.php" style="color: #ccc; text-decoration: none; font-size: 0.8em;">Kontakt</a>
     </footer>
 
     <script>

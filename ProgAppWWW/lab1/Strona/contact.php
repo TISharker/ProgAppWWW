@@ -4,7 +4,7 @@
 
 function PokazKontakt()
 {
-    
+
     echo '
     <div class="form-container">
         <h2>Formularz kontaktowy</h2>
@@ -33,12 +33,12 @@ function WyslijMailKontakt($odbiorca)
 {
     if (empty($_POST['temat']) || empty($_POST['tresc']) || empty($_POST['email'])) {
         echo '[nie_wypelniles_pola]';
-        echo PokazKontakt(); 
+        echo PokazKontakt();
     } else {
         $mail['subject'] = $_POST['temat'];
         $mail['body'] = $_POST['tresc'];
         $mail['sender'] = $_POST['email'];
-        $mail['reciptient'] = $odbiorca; 
+        $mail['reciptient'] = $odbiorca;
 
         $header = "From: Formularz kontaktowy <" . $mail['sender'] . ">\n";
         $header .= "MIME-Version: 1.0\nContent-Type: text/plain; charset=utf-8\nContent-Transfer-Encoding: 8bit\n";
@@ -55,10 +55,10 @@ function WyslijMailKontakt($odbiorca)
 
 function PrzypomnijHaslo($odbiorca)
 {
-    
-    
-    $pass = "admin"; 
-    
+
+
+    $pass = "admin";
+
     $mail['subject'] = "Przypomnienie hasla";
     $mail['body'] = "Twoje hasło do panelu admina to: " . $pass;
     $mail['sender'] = "admin@mojastrona.pl";
@@ -78,17 +78,15 @@ function PrzypomnijHaslo($odbiorca)
 
 // --- ZASTĄP KOŃCÓWKĘ PLIKU contact.php TYM KODEM ---
 
-// 1. Sprawdzamy, czy ktoś chce przypomnieć hasło (kliknął w link z panelu admina)
+// 1. Przypomnienie hasła
 if (isset($_GET['akcja']) && $_GET['akcja'] == 'przypomnij') {
-    PrzypomnijHaslo("admin@twojadomena.pl"); // Tutaj wpisz swój mail admina
+    PrzypomnijHaslo("admin@twojadomena.pl");
 }
-// 2. Sprawdzamy, czy wysłano formularz kontaktowy
+// 2. Wysyłka formularza
 elseif (isset($_POST['temat'])) {
-    WyslijMailKontakt("twoj_adres@email.com"); 
+    WyslijMailKontakt("twoj_adres@email.com");
 }
-// 3. W przeciwnym razie pokazujemy formularz
+// 3. Pokaz formularz
 else {
     PokazKontakt();
 }
-?>
-

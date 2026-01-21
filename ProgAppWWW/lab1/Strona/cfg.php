@@ -1,16 +1,16 @@
 <?php
-    $dbhost = 'localhost';
-    $dbuser = 'root';
-    $dbpass = ''; 
-    $baza = 'moja_strona';
-    
-    $login = 'admin';
-    $pass = 'admin';
+$dbhost = 'localhost';
+$dbuser = 'root';
+$dbpass = '';
+$baza = 'moja_strona';
 
-    $link = mysqli_connect($dbhost, $dbuser, $dbpass, $baza);
+$login = 'admin';
+$pass = 'admin';
+$admin_email = 'admin@admin.pl';
 
-    if (!$link) {
-        echo '<b>przerwane połączenie: </b> ' . mysqli_connect_error(); 
-        exit();
-    }
-?>
+$link = mysqli_connect($dbhost, $dbuser, $dbpass, $baza);
+
+if (!$link) {
+    echo '<b>przerwane połączenie: </b> ' . mysqli_connect_error();
+    exit();
+}

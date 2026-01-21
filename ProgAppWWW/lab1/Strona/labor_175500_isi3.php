@@ -1,11 +1,11 @@
 <?php
-$nr_indeksu = '175500'; 
+$nr_indeksu = '175500';
 $nrGrupy = '3';
 
 echo 'Jakub Sierocki: ' . $nr_indeksu . ' grupa: ' . $nrGrupy . '<br />';
 echo 'Zastosowanie metody include() <br />';
 
-include('test.php');  
+include('test.php');
 require_once('test.php');
 
 $number = 10;
@@ -46,15 +46,10 @@ if (isset($_GET['name'])) {
     echo "Hello, " . $_GET['name'];
 }
 
-$_POST['age'] = '20'
+$_POST['age'] = '21';
 echo "Your age is: " . $_POST['age'];
 
 
 session_start();
 $_SESSION['username'] = 'Jan Kowalski';
 echo $_SESSION['username'];
-
-
-
-
-?>

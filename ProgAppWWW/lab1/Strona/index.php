@@ -1,4 +1,5 @@
 <?php
+session_start();
 error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING);
 /*
      * Projekt: Strona WWW - Wersja v1.8
@@ -6,26 +7,10 @@ error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING);
      */
 include('cfg.php');
 include('showpage.php');
-
-
-$idp = $_GET['idp'] ?? '';
-
-// Obsługa dynamicznego ID strony
-if ($idp == '' || $idp == 'glowna') {
-    $stronaId = 1;
-} elseif (is_numeric($idp)) {
-    $stronaId = $idp;
-} else {
-    // Mapowanie statycznych nazw na ID
-    if ($idp == 'podstrona1') $stronaId = 2;
-    elseif ($idp == 'podstrona2') $stronaId = 3;
-    elseif ($idp == 'podstrona3') $stronaId = 4;
-    elseif ($idp == 'podstrona4') $stronaId = 5;
-    elseif ($idp == 'podstrona5') $stronaId = 6;
-    elseif ($idp == 'filmy') $stronaId = 7;
-    else $stronaId = 1;
-}
+include('contact.php');
+include('koszyk.php');
 ?>
+
 <!DOCTYPE html>
 <html lang="pl">
 
@@ -34,6 +19,7 @@ if ($idp == '' || $idp == 'glowna') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Największe budynki świata</title>
     <link rel="stylesheet" href="css/main.css">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="js/kolorujtlo.js" type="text/javascript"></script>
     <script src="js/timedate.js" type="text/javascript"></script>
@@ -53,15 +39,35 @@ if ($idp == '' || $idp == 'glowna') {
             $result = mysqli_query($link, $query);
 
             while ($row = mysqli_fetch_array($result)) {
-                echo '<li><a href="index.php?idp=' . $row['id'] . '">' . $row['page_title'] . '</a></li>';
+                echo '<li><a href="index.php?id=' . $row['id'] . '">' . $row['page_title'] . '</a></li>';
             }
             ?>
+            <li><a href="index.php?id=shop">Sklep</a></li>
+            <li><a href="index.php?id=contact">Kontakt</a></li>
         </ul>
     </nav>
 
     <main>
         <?php
-        echo PokazPodstrone($stronaId);
+        if (isset($_GET['id'])) {
+            $id_strony = $_GET['id'];
+
+            if ($id_strony === 'contact') {
+                echo PokazKontakt();
+            } elseif ($id_strony === 'forgot_pass') {
+                echo PrzypomnijHaslo();
+            } elseif ($id_strony === 'cart') {
+                echo PokazZawartoscKoszyka($link);
+            } elseif ($id_strony === 'shop') {
+                echo PokazSklep($link);
+            } else {
+                $tresc_strony = PokazPodstrone($id_strony);
+                echo $tresc_strony;
+            }
+        } else {
+            $tresc_strony = PokazPodstrone(1);
+            echo $tresc_strony;
+        }
         ?>
     </main>
 
@@ -76,7 +82,7 @@ if ($idp == '' || $idp == 'glowna') {
         ?>
         <br>
         <a href="admin/admin.php" style="color: #ccc; text-decoration: none; font-size: 0.8em;">Panel Admina</a>
-        <a href="contact.php" style="color: #ccc; text-decoration: none; font-size: 0.8em;">Kontakt</a>
+        <a href="index.php?id=forgot_pass" style="color: #ccc; text-decoration: none; font-size: 0.8em;">Przypomnij hasło</a>
     </footer>
 
     <script>

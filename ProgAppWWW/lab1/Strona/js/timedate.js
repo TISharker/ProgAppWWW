@@ -1,7 +1,11 @@
 function gettheDate()
 {
-    Todays = new Date();
-    TheDate = "" + (Todays.getMont()+1) + " / " + Todays.getDate() + " / " +(Todays.getYear()-100);
+    var Todays = new Date();
+    var day = Todays.getDate();
+    var month = Todays.getMonth() + 1;
+    var year = Todays.getFullYear();
+    
+    var TheDate = (day < 10 ? "0" : "") + day + "." + (month < 10 ? "0" : "") + month + "." + year;
     document.getElementById("data").innerHTML = TheDate;
 }
 
@@ -15,7 +19,6 @@ function stopclock()
     timerRunning = false;
 }
 
-
 function startclock()
 {
     stopclock();
@@ -23,18 +26,18 @@ function startclock()
     showtime();
 }
 
-
 function showtime()
 {
     var now = new Date();
     var hours = now.getHours();
     var minutes = now.getMinutes();
     var seconds = now.getSeconds();
-    var timeValue = "" + ((hours >12) ? hours -12 :hours)
-    timeValue += ((minutes<10) ? ":0" : ":") + minutes
-    timeValue += ((seconds<10) ? ":0" : ":") + seconds
-    timeValue += (hours >= 12) ? " P.M. " : " A.M. "
-    document.getElementById("zegarek").innerHTML = timeValue;
-    timerID = setTimeout("showtime()",1000);
+    
+    var timevalue = (hours < 10 ? "0" : "") + hours;
+    timevalue += (minutes < 10 ? ":0" : ":") + minutes;
+    timevalue += (seconds < 10 ? ":0" : ":") + seconds;
+    
+    document.getElementById("zegarek").innerHTML = timevalue;
+    timerID = setTimeout(showtime, 1000);
     timerRunning = true;
 }

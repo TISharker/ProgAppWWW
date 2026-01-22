@@ -119,8 +119,22 @@ function PokazSklep($link)
 
 function PokazZawartoscKoszyka($link)
 {
+    // Obsługa usuwania produktu
     if (isset($_GET['remove'])) {
         removeFromCart((int)$_GET['remove']);
+        header('Location: index.php?id=cart');
+        exit;
+    }
+
+    // Obsługa zmiany ilości produktu
+    if (isset($_POST['update_qty']) && isset($_POST['cart_item']) && isset($_POST['new_qty'])) {
+        $cart_item = (int)$_POST['cart_item'];
+        $new_qty = (int)$_POST['new_qty'];
+        if ($new_qty > 0 && isset($_SESSION[$cart_item . '_2'])) {
+            $_SESSION[$cart_item . '_2'] = $new_qty;
+        } elseif ($new_qty <= 0) {
+            removeFromCart($cart_item);
+        }
         header('Location: index.php?id=cart');
         exit;
     }
@@ -163,7 +177,13 @@ function PokazZawartoscKoszyka($link)
                     <tr style='border-bottom: 1px solid #f0f0f0;'>
                         <td style='padding: 12px; color: #333;'>{$p['tytul']}</td>
                         <td style='padding: 12px; text-align: right;'>" . number_format($cena_b, 2) . " zł</td>
-                        <td style='padding: 12px; text-align: center;'>$ile</td>
+                        <td style='padding: 12px; text-align: center;'>
+                            <form method='post' style='display: inline;'>
+                                <input type='hidden' name='cart_item' value='$i'>
+                                <input type='hidden' name='update_qty' value='1'>
+                                <input type='number' name='new_qty' value='$ile' min='1' style='width: 60px; text-align: center; padding: 6px; border: 1px solid #ccc; border-radius: 4px; font-size: 0.95em;' onchange='this.form.submit();'>
+                            </form>
+                        </td>
                         <td style='padding: 12px; text-align: right; font-weight: bold; color: #0c7976;'>" . number_format($wartosc, 2) . " zł</td>
                         <td style='padding: 12px; text-align: center;'>
                             <a href='index.php?id=cart&remove=$i' style='color: #d32f2f; text-decoration: none; font-size: 0.9em; font-weight: bold;'>[usuń]</a>
@@ -182,8 +202,7 @@ function PokazZawartoscKoszyka($link)
 
         $tabela .= '
         <div style="margin-top: 30px; text-align: right;">
-            <a href="index.php?id=shop" style="text-decoration: none; color: #0c7976; margin-right: 20px; font-weight: bold;">&larr; Wróć do zakupów</a>
-            <button style="background: #0c7976; color: white; border: none; padding: 12px 30px; border-radius: 5px; cursor: pointer; font-size: 1em; font-weight: bold;">Przejdź do kasy</button>
+            <a href="index.php?id=shop" style="text-decoration: none; color: #0c7976; font-weight: bold;">&larr; Wróć do zakupów</a>
         </div>';
     }
 

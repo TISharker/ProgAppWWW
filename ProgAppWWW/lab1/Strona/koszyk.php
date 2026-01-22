@@ -1,6 +1,6 @@
 <?php
 
-# funkcje koszyka zakupowego oparte o $_SESSION
+# funkcje koszyka zakupowego
 
 function addToCart($id_prod, $ile_sztuk = 1)
 {
@@ -40,7 +40,7 @@ function removeFromCart($nr)
     unset($_SESSION[$nr . '_4']);
 }
 
-# funkcja wyswietlajaca sklep z produktami - ZMIANA NA LISTĘ/TABELĘ
+# funkcja wyswietlajaca sklep z produktami 
 
 function PokazSklep($link)
 {
@@ -51,7 +51,7 @@ function PokazSklep($link)
 
     $dzisiaj = date('Y-m-d H:i:s');
 
-    // Pobieranie produktów - bez filtrowania, prosta lista
+    // Pobieranie produktów
     $query = "SELECT p.*, c.nazwa as nazwa_kategorii 
               FROM products p 
               LEFT JOIN categories c ON p.kategoria = c.id 
@@ -115,7 +115,7 @@ function PokazSklep($link)
     return $view;
 }
 
-# funkcja wyswietlajaca zawartosc koszyka - DISTINCT STYLE
+# funkcja wyswietlajaca zawartosc koszyka 
 
 function PokazZawartoscKoszyka($link)
 {

@@ -1,10 +1,7 @@
 <?php
 session_start();
 error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING);
-/*
-     * Projekt: Strona WWW - Wersja v1.8
-     * Autor: Jakub Sierocki 175500
-     */
+
 include('cfg.php');
 include('showpage.php');
 include('contact.php');
